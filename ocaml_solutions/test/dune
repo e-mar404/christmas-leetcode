@@ -1,2 +1,4 @@
 (test
- (name test_ocaml_solutions))
+ (name test_day_1)
+ (deps "../inputs/day_1.test")
+ (libraries ounit2 ocaml_solutions))
