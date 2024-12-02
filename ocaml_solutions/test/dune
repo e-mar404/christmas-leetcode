@@ -1,9 +1,16 @@
+(library 
+  (name test_day)
+  (libraries ounit2)
+  (modules Test_day))
+
 (test
  (name test_day_1)
  (deps "../inputs/day_1.test")
- (libraries ounit2 ocaml_solutions))
+ (libraries ounit2 test_day ocaml_solutions)
+ (modules Test_day_1))
 
 (test
  (name test_day_2)
  (deps "../inputs/day_2.test")
- (libraries ounit2 ocaml_solutions))
+ (libraries ounit2 test_day ocaml_solutions)
+ (modules Test_day_2))
