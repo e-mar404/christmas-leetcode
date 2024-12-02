@@ -2,3 +2,8 @@
  (name test_day_1)
  (deps "../inputs/day_1.test")
  (libraries ounit2 ocaml_solutions))
+
+(test
+ (name test_day_2)
+ (deps "../inputs/day_2.test")
+ (libraries ounit2 ocaml_solutions))
