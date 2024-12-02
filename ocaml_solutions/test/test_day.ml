@@ -1,12 +1,12 @@
 open OUnit2
 
-let test_case func expected file =
+let test_case (func, expected, file) =
   "Test day" >:: (fun _ ->  
     let actual = func file in
     
     assert_equal ~printer:string_of_int actual expected)
 
-let test func expected file =
-  let suite = "Test Suite" >::: [test_case func expected file] in
+let test cases =
+  let suite = "Test Suite" >::: List.map test_case cases in
 
   run_test_tt_main suite
