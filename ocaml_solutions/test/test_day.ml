@@ -1,9 +1,7 @@
 open OUnit2
 
-let test_case (func, expected, file) =
+let test_case (actual, expected) =
   "Test day" >:: (fun _ ->  
-    let actual = func file in
-    
     assert_equal ~printer:string_of_int expected actual)
 
 let test cases =
