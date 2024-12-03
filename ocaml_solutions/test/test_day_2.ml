@@ -1,9 +1,23 @@
-open Test_day
+open OUnit2
 open Ocaml_solutions.Day2
 
-let () =
-  let day_2_file = "../inputs/day_2.test" in
+let part_1_test _ = 
+  let safe_reports = find_safe_reports "../inputs/day_2.test" in
+  let expected = 2 in
 
-  test [
-    (find_safe_reports, 2, day_2_file)
-  ]
+  assert_equal ~printer:string_of_int expected safe_reports
+
+let part_2_test _ = 
+  let safe_reports = find_safe_reports "../inputs/day_2.test" ~tolerant:true in
+  let expected = 4 in
+
+  assert_equal ~printer:string_of_int expected safe_reports
+
+let suite =
+  "suite" >::: [
+      "part_1_test" >:: part_1_test;
+      "part_2_test" >:: part_2_test;
+    ]
+
+let () =
+  run_test_tt_main suite

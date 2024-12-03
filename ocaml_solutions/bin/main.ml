@@ -15,7 +15,11 @@ let _day_2_answers () =
 
   let day_2_file = "inputs/day_2.input" in
   let day_2_1 = Day2.find_safe_reports day_2_file in
+  let day_2_2 = Day2.find_safe_reports day_2_file ~tolerant:true in
 
-  Printf.printf "Part 1 answer: %d\n" day_2_1
+  Printf.printf "Part 1 answer: %d\n" day_2_1;
+  Printf.printf "Part 2 answer: %d\n" day_2_2
 
-let () = _day_2_answers ()
+let () = 
+  _day_1_answers ();
+  _day_2_answers ()
