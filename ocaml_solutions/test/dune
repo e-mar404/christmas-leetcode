@@ -14,3 +14,9 @@
  (deps "../inputs/day_2.test")
  (libraries ounit2 test_day ocaml_solutions)
  (modules Test_day_2))
+
+(test
+ (name test_day_3)
+ (deps "../inputs/day_3_1.test" "../inputs/day_3_2.test")
+ (libraries ounit2 test_day ocaml_solutions)
+ (modules Test_day_3))

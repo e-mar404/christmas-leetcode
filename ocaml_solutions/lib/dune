@@ -1,3 +1,4 @@
 (library
  (name ocaml_solutions)
- (modules Day1 Day2))
+ (libraries Str)
+ (modules Day1 Day2 Day3))

@@ -20,6 +20,18 @@ let _day_2_answers () =
   Printf.printf "Part 1 answer: %d\n" day_2_1;
   Printf.printf "Part 2 answer: %d\n" day_2_2
 
+let _day_3_answers () =
+  print_endline "Day 3:";
+
+  let day_3_file = "inputs/day_3.input" in
+
+  let part_1 = Day3.find_multiples day_3_file in
+  let part_2 = Day3.find_multiples day_3_file ~strict:true in
+
+  Printf.printf "Part 1 answer: %d\n" part_1;
+  Printf.printf "Part 2 answer: %d\n" part_2 
+
 let () = 
   _day_1_answers ();
-  _day_2_answers ()
+  _day_2_answers ();
+  _day_3_answers ();
