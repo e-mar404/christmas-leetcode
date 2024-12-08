@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-func main() {
+func day1() {
 	file, err := os.Open("../inputs/day1.input")
 	if err != nil {
 		fmt.Printf("opening file returned: %v\n", err)
