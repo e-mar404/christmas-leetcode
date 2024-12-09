@@ -53,6 +53,7 @@ func day1() {
 		part2 += num * m[num]
 	}
 
+	fmt.Println("Day 1")
 	fmt.Printf("Part 1: %v\n", part1)
 	fmt.Printf("Part 2: %v\n", part2)
 }

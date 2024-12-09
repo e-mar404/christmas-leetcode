@@ -94,6 +94,7 @@ func day2() {
 		}
 	}
 
+	fmt.Println("Day 2")
 	fmt.Printf("Part 1: %v\n", part1)
 	fmt.Printf("Part 2: %v\n", part2)
 }
