@@ -2,7 +2,7 @@ defmodule Day1 do
   def line_list(file) do
     file
     |> Stream.map(&String.trim/1)
-    |> Stream.reject(fn x -> x == "" end)
+    |> Stream.reject(&(&1 == ""))
     |> Stream.map(&String.split(&1, " "))
     |> Enum.to_list()
   end
