@@ -6,12 +6,12 @@ defmodule Day3 do
 
   def clean_line(line_stream) do
     line_stream
-    |> Stream.map(fn [line] -> [Regex.scan(~r/mul\(\d{1,3},\d{1,3}\)/, line)] end) 
+    |> Stream.map(fn [line] -> Regex.scan(~r/mul\(\d{1,3},\d{1,3}\)/, line) end) 
   end
 
   def evaluate_mul(values_stream) do
     values_stream
-    |> Stream.map(fn [values] -> Enum.map(values, &(extract_mul_values/1)) end)
+    |> Stream.map(fn values -> Enum.map(values, &(extract_mul_values/1)) end)
     |> Enum.to_list()
     |> List.flatten()
     |> Enum.sum()
