@@ -10,31 +10,29 @@ defmodule Day3 do
     |> Enum.to_list()
     |> List.flatten()
   end
+  
+  def evaluate_mul_list(["do()" | tail], acc, _status) do
+    evaluate_mul_list(tail, acc, :enabled)
+  end
 
+  def evaluate_mul_list(["don't()" | tail], acc, _status) do
+    evaluate_mul_list(tail, acc, :disabled)
+  end
+  
   def evaluate_mul_list([head | tail], acc, status) do
-    case head do
-      "do()" -> 
+    case status do
+      :enabled ->
+        value = extract_mul_value(head)
+        evaluate_mul_list(tail, acc + value, status)
 
-        evaluate_mul_list(tail, acc, :enabled)
-
-      "don't()" ->
-        evaluate_mul_list(tail, acc, :disabled)
-
-      _ ->
-        case status do
-          :enabled ->
-            value = extract_mul_value(head)
-            evaluate_mul_list(tail, acc + value, status)
-
-          :disabled ->
-            evaluate_mul_list(tail, acc, status)
-        end
+      :disabled ->
+        evaluate_mul_list(tail, acc, status)
     end
   end
 
   def evaluate_mul_list(_, acc, _status), do: acc
 
-  def extract_mul_value(mul_string) do
+  defp extract_mul_value(mul_string) do
     [[left], [right]] = Regex.scan(~r/\d{1,3}/, mul_string)
     
     String.to_integer(left) * String.to_integer(right)
